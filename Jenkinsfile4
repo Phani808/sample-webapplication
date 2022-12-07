@@ -61,11 +61,10 @@ pipeline{
                     steps {
                                   script{
                                          sh 'cp -r ../shared-library@2/target .'
-                                         sh 'docker build . -t deekshithsn/devops-training:$Docker_tag'
-                                           withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {
-
-                                              sh 'docker login -u deekshithsn -p $docker_password'
-                                              sh 'docker push deekshithsn/devops-training:$Docker_tag'
+                                         sh 'docker build . -t phani997/devops-training:$Docker_tag'
+                                          withCredentials([string(credentialsId: 'docker-password', variable: 'docker-password')]) {
+                                              sh 'docker login -u phani997 -p $docker_password'
+                                              sh 'docker push phani997/devops-training:$Docker_tag'
                                           }
                        }
                     }
