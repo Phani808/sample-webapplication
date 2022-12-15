@@ -15,7 +15,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t phani997/WebApp .'
+                    sh 'docker build -t phani997/Webapp .'
                 }
             }
         }
