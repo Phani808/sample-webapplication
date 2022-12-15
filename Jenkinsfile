@@ -19,4 +19,14 @@ pipeline {
                 }
             }
         }
+        stage('Push image to hub'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhub')]) {
+                    sh 'docker login -u phani997 -p ${dockerhub}'
+                    }
+                  sh 'docker push phani997/webapp'
+                }
+            }
+        }
    }   }    
