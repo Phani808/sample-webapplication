@@ -1,6 +1,4 @@
-FROM tomcat 
-WORKDIR webapps 
-COPY target/WebApp.war .
-RUN rm -rf ROOT && mv WebApp.war ROOT.war
-#entrypoint
-ENTRYPOINT ["sh", "/usr/local/tomcat/bin/startup.sh"]
+FROM openjdk:8
+EXPOSE 8080
+ADD target/WebApp.jar WebApp.jar
+ENTRYPOINT ["java","-jar","/WebApp.jar"]
